@@ -16,4 +16,8 @@
  * @param advertSelectBlock 点击图片回调block
  */
 + (instancetype)advertScrollViewFrame:(CGRect)frame imagesArray:(NSArray *)imagesArray timeInterval:(NSTimeInterval)timeInterval advertSelectBlock:(void(^)(int selectIndex))advertSelectBlock;
+/*!
+ * @abstract  stop timer
+ */
+- (void)stopTimer;
 @end
