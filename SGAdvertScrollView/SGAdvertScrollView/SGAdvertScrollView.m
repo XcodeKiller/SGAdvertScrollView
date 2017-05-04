@@ -60,6 +60,8 @@
 - (UIImageView *)leftImgView{
     if (!_leftImgView) {
         _leftImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
+        _leftImgView.clipsToBounds = YES;
+        _leftImgView.contentMode = UIViewContentModeScaleAspectFill;
         [self.adScrollView addSubview:_leftImgView];
     }
     return _leftImgView;
@@ -67,6 +69,8 @@
 - (UIImageView *)centerImgView{
     if (!_centerImgView) {
         _centerImgView = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.bounds), 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
+        _centerImgView.clipsToBounds = YES;
+        _centerImgView.contentMode = UIViewContentModeScaleAspectFill;
         [self.adScrollView addSubview:_centerImgView];
     }
     return _centerImgView;
@@ -74,6 +78,8 @@
 - (UIImageView *)rightImgView{
     if (!_rightImgView) {
         _rightImgView = [[UIImageView alloc]initWithFrame:CGRectMake(2 * CGRectGetWidth(self.bounds), 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
+        _rightImgView.clipsToBounds = YES;
+        _rightImgView.contentMode = UIViewContentModeScaleAspectFill;
         [self.adScrollView addSubview:_rightImgView];
     }
     return _rightImgView;
@@ -176,12 +182,4 @@
         [self setSubviews];
     }
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 @end
