@@ -31,7 +31,7 @@
         _imageNameArray = [imagesArray copy];
         self.advertClickBlock = advertSelectBlock;
         _timeInterval = timeInterval;
-        if (_timeInterval == 0) {
+        if (_timeInterval <= 0) {
             _timeInterval = 5;
         }
         [self setSubviews];
@@ -147,6 +147,7 @@
 - (void)startTimer{
     [self stopTimer];
     _timer = [NSTimer scheduledTimerWithTimeInterval:_timeInterval target:self selector:@selector(timerChanged) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
 }
 - (void)timerChanged{
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
